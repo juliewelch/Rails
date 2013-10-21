@@ -1,0 +1,13 @@
+<p>
+  <b>Items:</b>
+  <%=h @shoppingcart.items %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%=h @shoppingcart.owner %>
+</p>
+
+
+<%= link_to 'Edit', edit_shoppingcart_path(@shoppingcart) %> |
+<%= link_to 'Back', shoppingcarts_path %>

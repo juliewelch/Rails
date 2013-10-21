@@ -1,0 +1,13 @@
+<p>
+  <b>Shoppingcart:</b>
+  <%=h @order.shoppingcart %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @order.address %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

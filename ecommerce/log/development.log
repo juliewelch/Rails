@@ -1,0 +1,776 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (80.2ms)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `schema_migrations`[0m
+  [4;36;1mSQL (146.5ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateItems (20131021182010)
+  [4;35;1mSQL (42.8ms)[0m   [0mCREATE TABLE `items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `description` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (7.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20131021182010')[0m
+Migrating to CreateCatalogs (20131021182054)
+  [4;35;1mSQL (30.4ms)[0m   [0mCREATE TABLE `catalogs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (7.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20131021182054')[0m
+Migrating to CreateInventories (20131021182250)
+  [4;35;1mSQL (38.7ms)[0m   [0mCREATE TABLE `inventories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (7.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20131021182250')[0m
+Migrating to CreateShoppingcarts (20131021182457)
+  [4;35;1mSQL (38.6ms)[0m   [0mCREATE TABLE `shoppingcarts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `owner` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (7.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20131021182457')[0m
+Migrating to CreateOrders (20131021182520)
+  [4;35;1mSQL (47.1ms)[0m   [0mCREATE TABLE `orders` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20131021182520')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW FIELDS FROM `Company`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mdescribe `Company`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `Company`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mSHOW FIELDS FROM `Employee`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mdescribe `Employee`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `Employee`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `Works`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mdescribe `Works`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `Works`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `catalogs`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mdescribe `catalogs`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `catalogs`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `inventories`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mdescribe `inventories`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `inventories`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mdescribe `items`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `items`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mdescribe `orders`[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW KEYS FROM `orders`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW FIELDS FROM `shoppingcarts`[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mdescribe `shoppingcarts`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `shoppingcarts`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 10.163.166.41 at 2013-10-21 14:38:45) [GET]
+  [4;35;1mItem Load (0.4ms)[0m   [0mSELECT * FROM `items` [0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 29ms (View: 20, DB: 1) | 200 OK [http://cor.cs.uky.edu/items]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 10.163.166.40 at 2013-10-21 14:38:58) [GET]
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM `items` [0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://cor.cs.uky.edu/items/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CatalogsController#index (for 10.163.166.41 at 2013-10-21 14:39:01) [GET]
+  [4;35;1mCatalog Load (0.4ms)[0m   [0mSELECT * FROM `catalogs` [0m
+Rendering template within layouts/catalogs
+Rendering catalogs/index
+Completed in 26ms (View: 17, DB: 1) | 200 OK [http://cor.cs.uky.edu/catalogs]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 10.163.166.40 at 2013-10-21 14:39:13) [GET]
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM `items` [0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 10ms (View: 2, DB: 0) | 200 OK [http://cor.cs.uky.edu/items/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#new (for 10.163.166.40 at 2013-10-21 14:39:15) [GET]
+  [4;35;1mItem Columns (1.1ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Rendering template within layouts/items
+Rendering items/new
+Completed in 95ms (View: 87, DB: 1) | 200 OK [http://cor.cs.uky.edu/items/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 10.163.166.41 at 2013-10-21 14:39:17) [GET]
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM `items` [0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 9ms (View: 2, DB: 0) | 200 OK [http://cor.cs.uky.edu/items]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#create (for 10.163.166.40 at 2013-10-21 14:39:29) [POST]
+  Parameters: {"authenticity_token"=>"54j8w5UY9MUTeE9zftCV0GccLp3EbuS0wW2pH4bp7Ng=", "commit"=>"Create", "item"=>{"description"=>"New Pokemon game", "name"=>"Pokemon"}}
+  [4;35;1mItem Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mItem Create (0.3ms)[0m   [0mINSERT INTO `items` (`description`, `created_at`, `updated_at`, `name`) VALUES('New Pokemon game', '2013-10-21 18:39:29', '2013-10-21 18:39:29', 'Pokemon')[0m
+  [4;36;1mSQL (29.7ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://cor.cs.uky.edu:9991/items/1
+Completed in 42ms (DB: 32) | 302 Found [http://cor.cs.uky.edu/items]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#show (for 10.163.166.40 at 2013-10-21 14:39:29) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mItem Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+  [4;35;1mItem Load (0.4ms)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 1) [0m
+Rendering template within layouts/items
+Rendering items/show
+Completed in 17ms (View: 9, DB: 2) | 200 OK [http://cor.cs.uky.edu/items/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 10.163.166.40 at 2013-10-21 14:39:31) [GET]
+  [4;35;1mItem Load (0.4ms)[0m   [0mSELECT * FROM `items` [0m
+Rendering template within layouts/items
+Rendering items/index
+  [4;36;1mItem Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 16ms (View: 8, DB: 2) | 200 OK [http://cor.cs.uky.edu/items]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CatalogsController#index (for 10.163.166.40 at 2013-10-21 14:39:42) [GET]
+  [4;36;1mCatalog Load (8.2ms)[0m   [0;1mSELECT * FROM `catalogs` [0m
+Rendering template within layouts/catalogs
+Rendering catalogs/index
+Completed in 71ms (View: 3, DB: 8) | 200 OK [http://cor.cs.uky.edu/catalogs]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CatalogsController#new (for 10.163.166.40 at 2013-10-21 14:39:49) [GET]
+  [4;36;1mCatalog Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `catalogs`[0m
+Rendering template within layouts/catalogs
+Rendering catalogs/new
+
+ActionView::TemplateError (undefined method `items' for #<Catalog id: nil, created_at: nil, updated_at: nil>) on line #8 of app/views/catalogs/new.html.erb:
+5: 
+6:   <p>
+7:     <%= f.label :items %><br />
+8:     <%= f.text_field :items %>
+9:   </p>
+10:   <p>
+11:     <%= f.submit 'Create' %>
+
+    /usr/lib/ruby/vendor_ruby/active_record/attribute_methods.rb:260:in `method_missing'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:889:in `send'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:889:in `value_before_type_cast'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:877:in `value_before_type_cast'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:798:in `to_input_field_tag'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:568:in `text_field'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:989:in `send'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:989:in `text_field'
+    app/views/catalogs/new.html.erb:8
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:499:in `fields_for'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:282:in `form_for'
+    app/views/catalogs/new.html.erb:3
+    /usr/lib/ruby/vendor_ruby/action_view/renderable.rb:34:in `send'
+    /usr/lib/ruby/vendor_ruby/action_view/renderable.rb:34:in `render'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:306:in `with_template'
+    /usr/lib/ruby/vendor_ruby/action_view/renderable.rb:30:in `render'
+    /usr/lib/ruby/vendor_ruby/action_view/template.rb:205:in `render_template'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:265:in `render'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:348:in `_render_with_layout'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:262:in `render'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:1252:in `render_for_file'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:942:in `render_without_benchmark'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:135:in `send'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:135:in `custom'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:179:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:179:in `respond'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:173:in `each'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:173:in `respond'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/catalogs_controller.rb:29:in `new'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:1333:in `send'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:1333:in `perform_action_without_filters'
+    /usr/lib/ruby/vendor_ruby/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/vendor_ruby/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/vendor_ruby/action_controller/rescue.rb:160:in `perform_action_without_flash'
+    /usr/lib/ruby/vendor_ruby/action_controller/flash.rb:151:in `perform_action'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:532:in `send'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:532:in `process_without_filters'
+    /usr/lib/ruby/vendor_ruby/action_controller/filters.rb:606:in `process'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:391:in `process'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:386:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/routing/route_set.rb:438:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:87:in `dispatch'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:121:in `_call'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:29:in `call'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:29:in `call'
+    /usr/lib/ruby/vendor_ruby/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:9:in `cache'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:28:in `call'
+    /usr/lib/ruby/vendor_ruby/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/string_coercion.rb:25:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/head.rb:9:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:24:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/params_parser.rb:15:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/session/cookie_store.rb:99:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/failsafe.rb:26:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/lock.rb:15:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:114:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/reloader.rb:34:in `run'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:108:in `call'
+    /usr/lib/ruby/vendor_ruby/rails/rack/static.rb:31:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:52:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:46:in `each'
+    /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:46:in `call'
+    /usr/lib/ruby/vendor_ruby/rails/rack/log_tailer.rb:17:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:59:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:13:in `run'
+
+Rendered rescues/_trace (38.5ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 10.163.166.40 at 2013-10-21 14:40:04) [GET]
+
+ActionController::RoutingError (No route matches "/shoppingcart" with {:method=>:get}):
+  /usr/lib/ruby/vendor_ruby/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+  /usr/lib/ruby/vendor_ruby/action_controller/routing/route_set.rb:442:in `recognize'
+  /usr/lib/ruby/vendor_ruby/action_controller/routing/route_set.rb:437:in `call'
+  /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:87:in `dispatch'
+  /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:121:in `_call'
+  /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+  /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:29:in `call'
+  /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:29:in `call'
+  /usr/lib/ruby/vendor_ruby/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:9:in `cache'
+  /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:28:in `call'
+  /usr/lib/ruby/vendor_ruby/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+  /usr/lib/ruby/vendor_ruby/action_controller/string_coercion.rb:25:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/head.rb:9:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:24:in `call'
+  /usr/lib/ruby/vendor_ruby/action_controller/params_parser.rb:15:in `call'
+  /usr/lib/ruby/vendor_ruby/action_controller/session/cookie_store.rb:99:in `call'
+  /usr/lib/ruby/vendor_ruby/action_controller/failsafe.rb:26:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:15:in `call'
+  /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:114:in `call'
+  /usr/lib/ruby/vendor_ruby/action_controller/reloader.rb:34:in `run'
+  /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:108:in `call'
+  /usr/lib/ruby/vendor_ruby/rails/rack/static.rb:31:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:52:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:46:in `each'
+  /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:46:in `call'
+  /usr/lib/ruby/vendor_ruby/rails/rack/log_tailer.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:59:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:13:in `run'
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ShoppingcartsController#index (for 10.163.166.40 at 2013-10-21 14:40:27) [GET]
+  [4;35;1mShoppingcart Load (0.4ms)[0m   [0mSELECT * FROM `shoppingcarts` [0m
+Rendering template within layouts/shoppingcarts
+Rendering shoppingcarts/index
+Completed in 92ms (View: 18, DB: 1) | 200 OK [http://cor.cs.uky.edu/shoppingcarts]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ShoppingcartsController#new (for 10.163.166.40 at 2013-10-21 14:40:29) [GET]
+  [4;35;1mShoppingcart Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `shoppingcarts`[0m
+Rendering template within layouts/shoppingcarts
+Rendering shoppingcarts/new
+
+ActionView::TemplateError (undefined method `items' for #<Shoppingcart:0x7f8749ecbb20>) on line #8 of app/views/shoppingcarts/new.html.erb:
+5: 
+6:   <p>
+7:     <%= f.label :items %><br />
+8:     <%= f.text_field :items %>
+9:   </p>
+10:   <p>
+11:     <%= f.label :owner %><br />
+
+    /usr/lib/ruby/vendor_ruby/active_record/attribute_methods.rb:260:in `method_missing'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:889:in `send'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:889:in `value_before_type_cast'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:877:in `value_before_type_cast'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:798:in `to_input_field_tag'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:568:in `text_field'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:989:in `send'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:989:in `text_field'
+    app/views/shoppingcarts/new.html.erb:8
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:499:in `fields_for'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:282:in `form_for'
+    app/views/shoppingcarts/new.html.erb:3
+    /usr/lib/ruby/vendor_ruby/action_view/renderable.rb:34:in `send'
+    /usr/lib/ruby/vendor_ruby/action_view/renderable.rb:34:in `render'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:306:in `with_template'
+    /usr/lib/ruby/vendor_ruby/action_view/renderable.rb:30:in `render'
+    /usr/lib/ruby/vendor_ruby/action_view/template.rb:205:in `render_template'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:265:in `render'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:348:in `_render_with_layout'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:262:in `render'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:1252:in `render_for_file'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:942:in `render_without_benchmark'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:135:in `send'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:135:in `custom'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:179:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:179:in `respond'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:173:in `each'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:173:in `respond'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/shoppingcarts_controller.rb:29:in `new'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:1333:in `send'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:1333:in `perform_action_without_filters'
+    /usr/lib/ruby/vendor_ruby/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/vendor_ruby/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/vendor_ruby/action_controller/rescue.rb:160:in `perform_action_without_flash'
+    /usr/lib/ruby/vendor_ruby/action_controller/flash.rb:151:in `perform_action'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:532:in `send'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:532:in `process_without_filters'
+    /usr/lib/ruby/vendor_ruby/action_controller/filters.rb:606:in `process'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:391:in `process'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:386:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/routing/route_set.rb:438:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:87:in `dispatch'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:121:in `_call'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:29:in `call'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:29:in `call'
+    /usr/lib/ruby/vendor_ruby/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:9:in `cache'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:28:in `call'
+    /usr/lib/ruby/vendor_ruby/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/string_coercion.rb:25:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/head.rb:9:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:24:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/params_parser.rb:15:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/session/cookie_store.rb:99:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/failsafe.rb:26:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/lock.rb:15:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:114:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/reloader.rb:34:in `run'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:108:in `call'
+    /usr/lib/ruby/vendor_ruby/rails/rack/static.rb:31:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:52:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:46:in `each'
+    /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:46:in `call'
+    /usr/lib/ruby/vendor_ruby/rails/rack/log_tailer.rb:17:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:59:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:13:in `run'
+
+Rendered rescues/_trace (37.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CatalogsController#index (for 10.163.166.40 at 2013-10-21 14:40:42) [GET]
+  [4;35;1mCatalog Load (0.2ms)[0m   [0mSELECT * FROM `catalogs` [0m
+Rendering template within layouts/catalogs
+Rendering catalogs/index
+Completed in 10ms (View: 3, DB: 0) | 200 OK [http://cor.cs.uky.edu/catalogs]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing CatalogsController#new (for 10.163.166.40 at 2013-10-21 14:40:44) [GET]
+  [4;35;1mCatalog Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `catalogs`[0m
+Rendering template within layouts/catalogs
+Rendering catalogs/new
+
+ActionView::TemplateError (undefined method `items' for #<Catalog id: nil, created_at: nil, updated_at: nil>) on line #8 of app/views/catalogs/new.html.erb:
+5: 
+6:   <p>
+7:     <%= f.label :items %><br />
+8:     <%= f.text_field :items %>
+9:   </p>
+10:   <p>
+11:     <%= f.submit 'Create' %>
+
+    /usr/lib/ruby/vendor_ruby/active_record/attribute_methods.rb:260:in `method_missing'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:889:in `send'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:889:in `value_before_type_cast'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:877:in `value_before_type_cast'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:798:in `to_input_field_tag'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:568:in `text_field'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:989:in `send'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:989:in `text_field'
+    app/views/catalogs/new.html.erb:8
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:499:in `fields_for'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:282:in `form_for'
+    app/views/catalogs/new.html.erb:3
+    /usr/lib/ruby/vendor_ruby/action_view/renderable.rb:34:in `send'
+    /usr/lib/ruby/vendor_ruby/action_view/renderable.rb:34:in `render'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:306:in `with_template'
+    /usr/lib/ruby/vendor_ruby/action_view/renderable.rb:30:in `render'
+    /usr/lib/ruby/vendor_ruby/action_view/template.rb:205:in `render_template'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:265:in `render'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:348:in `_render_with_layout'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:262:in `render'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:1252:in `render_for_file'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:942:in `render_without_benchmark'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:135:in `send'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:135:in `custom'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:179:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:179:in `respond'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:173:in `each'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:173:in `respond'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/catalogs_controller.rb:29:in `new'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:1333:in `send'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:1333:in `perform_action_without_filters'
+    /usr/lib/ruby/vendor_ruby/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/vendor_ruby/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/vendor_ruby/action_controller/rescue.rb:160:in `perform_action_without_flash'
+    /usr/lib/ruby/vendor_ruby/action_controller/flash.rb:151:in `perform_action'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:532:in `send'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:532:in `process_without_filters'
+    /usr/lib/ruby/vendor_ruby/action_controller/filters.rb:606:in `process'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:391:in `process'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:386:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/routing/route_set.rb:438:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:87:in `dispatch'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:121:in `_call'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:29:in `call'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:29:in `call'
+    /usr/lib/ruby/vendor_ruby/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:9:in `cache'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:28:in `call'
+    /usr/lib/ruby/vendor_ruby/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/string_coercion.rb:25:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/head.rb:9:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:24:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/params_parser.rb:15:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/session/cookie_store.rb:99:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/failsafe.rb:26:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/lock.rb:15:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:114:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/reloader.rb:34:in `run'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:108:in `call'
+    /usr/lib/ruby/vendor_ruby/rails/rack/static.rb:31:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:52:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:46:in `each'
+    /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:46:in `call'
+    /usr/lib/ruby/vendor_ruby/rails/rack/log_tailer.rb:17:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:59:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:13:in `run'
+
+Rendered rescues/_trace (38.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 10.163.166.40 at 2013-10-21 14:40:49) [GET]
+
+ActionController::RoutingError (No route matches "/inventory" with {:method=>:get}):
+  /usr/lib/ruby/vendor_ruby/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+  /usr/lib/ruby/vendor_ruby/action_controller/routing/route_set.rb:442:in `recognize'
+  /usr/lib/ruby/vendor_ruby/action_controller/routing/route_set.rb:437:in `call'
+  /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:87:in `dispatch'
+  /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:121:in `_call'
+  /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+  /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:29:in `call'
+  /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:29:in `call'
+  /usr/lib/ruby/vendor_ruby/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:9:in `cache'
+  /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:28:in `call'
+  /usr/lib/ruby/vendor_ruby/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+  /usr/lib/ruby/vendor_ruby/action_controller/string_coercion.rb:25:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/head.rb:9:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:24:in `call'
+  /usr/lib/ruby/vendor_ruby/action_controller/params_parser.rb:15:in `call'
+  /usr/lib/ruby/vendor_ruby/action_controller/session/cookie_store.rb:99:in `call'
+  /usr/lib/ruby/vendor_ruby/action_controller/failsafe.rb:26:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/lock.rb:15:in `call'
+  /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:114:in `call'
+  /usr/lib/ruby/vendor_ruby/action_controller/reloader.rb:34:in `run'
+  /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:108:in `call'
+  /usr/lib/ruby/vendor_ruby/rails/rack/static.rb:31:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:52:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:46:in `each'
+  /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:46:in `call'
+  /usr/lib/ruby/vendor_ruby/rails/rack/log_tailer.rb:17:in `call'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:59:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+  /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:13:in `run'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing InventoriesController#index (for 10.163.166.40 at 2013-10-21 14:40:58) [GET]
+  [4;36;1mInventory Load (0.4ms)[0m   [0;1mSELECT * FROM `inventories` [0m
+Rendering template within layouts/inventories
+Rendering inventories/index
+Completed in 93ms (View: 84, DB: 1) | 200 OK [http://cor.cs.uky.edu/inventories]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing InventoriesController#new (for 10.163.166.40 at 2013-10-21 14:41:01) [GET]
+  [4;36;1mInventory Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `inventories`[0m
+Rendering template within layouts/inventories
+Rendering inventories/new
+
+ActionView::TemplateError (undefined method `items' for #<Inventory id: nil, created_at: nil, updated_at: nil>) on line #8 of app/views/inventories/new.html.erb:
+5: 
+6:   <p>
+7:     <%= f.label :items %><br />
+8:     <%= f.text_field :items %>
+9:   </p>
+10:   <p>
+11:     <%= f.submit 'Create' %>
+
+    /usr/lib/ruby/vendor_ruby/active_record/attribute_methods.rb:260:in `method_missing'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:889:in `send'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:889:in `value_before_type_cast'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:877:in `value_before_type_cast'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:798:in `to_input_field_tag'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:568:in `text_field'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:989:in `send'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:989:in `text_field'
+    app/views/inventories/new.html.erb:8
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:499:in `fields_for'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:282:in `form_for'
+    app/views/inventories/new.html.erb:3
+    /usr/lib/ruby/vendor_ruby/action_view/renderable.rb:34:in `send'
+    /usr/lib/ruby/vendor_ruby/action_view/renderable.rb:34:in `render'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:306:in `with_template'
+    /usr/lib/ruby/vendor_ruby/action_view/renderable.rb:30:in `render'
+    /usr/lib/ruby/vendor_ruby/action_view/template.rb:205:in `render_template'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:265:in `render'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:348:in `_render_with_layout'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:262:in `render'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:1252:in `render_for_file'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:942:in `render_without_benchmark'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:135:in `send'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:135:in `custom'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:179:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:179:in `respond'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:173:in `each'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:173:in `respond'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/inventories_controller.rb:29:in `new'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:1333:in `send'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:1333:in `perform_action_without_filters'
+    /usr/lib/ruby/vendor_ruby/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/vendor_ruby/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/vendor_ruby/action_controller/rescue.rb:160:in `perform_action_without_flash'
+    /usr/lib/ruby/vendor_ruby/action_controller/flash.rb:151:in `perform_action'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:532:in `send'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:532:in `process_without_filters'
+    /usr/lib/ruby/vendor_ruby/action_controller/filters.rb:606:in `process'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:391:in `process'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:386:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/routing/route_set.rb:438:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:87:in `dispatch'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:121:in `_call'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:29:in `call'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:29:in `call'
+    /usr/lib/ruby/vendor_ruby/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:9:in `cache'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:28:in `call'
+    /usr/lib/ruby/vendor_ruby/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/string_coercion.rb:25:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/head.rb:9:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:24:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/params_parser.rb:15:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/session/cookie_store.rb:99:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/failsafe.rb:26:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/lock.rb:15:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:114:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/reloader.rb:34:in `run'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:108:in `call'
+    /usr/lib/ruby/vendor_ruby/rails/rack/static.rb:31:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:52:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:46:in `each'
+    /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:46:in `call'
+    /usr/lib/ruby/vendor_ruby/rails/rack/log_tailer.rb:17:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:59:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:13:in `run'
+
+Rendered rescues/_trace (37.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#index (for 10.163.166.40 at 2013-10-21 14:41:09) [GET]
+  [4;36;1mOrder Load (0.4ms)[0m   [0;1mSELECT * FROM `orders` [0m
+Rendering template within layouts/orders
+Rendering orders/index
+Completed in 25ms (View: 16, DB: 1) | 200 OK [http://cor.cs.uky.edu/orders]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing OrdersController#new (for 10.163.166.40 at 2013-10-21 14:41:12) [GET]
+  [4;36;1mOrder Columns (0.9ms)[0m   [0;1mSHOW FIELDS FROM `orders`[0m
+Rendering template within layouts/orders
+Rendering orders/new
+
+ActionView::TemplateError (undefined method `shoppingcart' for #<Order id: nil, created_at: nil, updated_at: nil>) on line #8 of app/views/orders/new.html.erb:
+5: 
+6:   <p>
+7:     <%= f.label :shoppingcart %><br />
+8:     <%= f.text_field :shoppingcart %>
+9:   </p>
+10:   <p>
+11:     <%= f.label :address %><br />
+
+    /usr/lib/ruby/vendor_ruby/active_record/attribute_methods.rb:260:in `method_missing'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:889:in `send'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:889:in `value_before_type_cast'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:877:in `value_before_type_cast'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:798:in `to_input_field_tag'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:568:in `text_field'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:989:in `send'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:989:in `text_field'
+    app/views/orders/new.html.erb:8
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:499:in `fields_for'
+    /usr/lib/ruby/vendor_ruby/action_view/helpers/form_helper.rb:282:in `form_for'
+    app/views/orders/new.html.erb:3
+    /usr/lib/ruby/vendor_ruby/action_view/renderable.rb:34:in `send'
+    /usr/lib/ruby/vendor_ruby/action_view/renderable.rb:34:in `render'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:306:in `with_template'
+    /usr/lib/ruby/vendor_ruby/action_view/renderable.rb:30:in `render'
+    /usr/lib/ruby/vendor_ruby/action_view/template.rb:205:in `render_template'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:265:in `render'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:348:in `_render_with_layout'
+    /usr/lib/ruby/vendor_ruby/action_view/base.rb:262:in `render'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:1252:in `render_for_file'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:942:in `render_without_benchmark'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:135:in `send'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:135:in `custom'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:179:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:179:in `respond'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:173:in `each'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:173:in `respond'
+    /usr/lib/ruby/vendor_ruby/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/orders_controller.rb:29:in `new'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:1333:in `send'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:1333:in `perform_action_without_filters'
+    /usr/lib/ruby/vendor_ruby/action_controller/filters.rb:617:in `call_filters'
+    /usr/lib/ruby/vendor_ruby/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/vendor_ruby/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/vendor_ruby/action_controller/rescue.rb:160:in `perform_action_without_flash'
+    /usr/lib/ruby/vendor_ruby/action_controller/flash.rb:151:in `perform_action'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:532:in `send'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:532:in `process_without_filters'
+    /usr/lib/ruby/vendor_ruby/action_controller/filters.rb:606:in `process'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:391:in `process'
+    /usr/lib/ruby/vendor_ruby/action_controller/base.rb:386:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/routing/route_set.rb:438:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:87:in `dispatch'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:121:in `_call'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:29:in `call'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:29:in `call'
+    /usr/lib/ruby/vendor_ruby/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:9:in `cache'
+    /usr/lib/ruby/vendor_ruby/active_record/query_cache.rb:28:in `call'
+    /usr/lib/ruby/vendor_ruby/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/string_coercion.rb:25:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/head.rb:9:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/methodoverride.rb:24:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/params_parser.rb:15:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/session/cookie_store.rb:99:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/failsafe.rb:26:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/lock.rb:15:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:114:in `call'
+    /usr/lib/ruby/vendor_ruby/action_controller/reloader.rb:34:in `run'
+    /usr/lib/ruby/vendor_ruby/action_controller/dispatcher.rb:108:in `call'
+    /usr/lib/ruby/vendor_ruby/rails/rack/static.rb:31:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:52:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:46:in `each'
+    /usr/lib/ruby/vendor_ruby/rack/urlmap.rb:46:in `call'
+    /usr/lib/ruby/vendor_ruby/rails/rack/log_tailer.rb:17:in `call'
+    /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:59:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/vendor_ruby/rack/handler/webrick.rb:13:in `run'
+
+Rendered rescues/_trace (37.0ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
