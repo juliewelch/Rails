@@ -774,3 +774,37 @@ ActionView::TemplateError (undefined method `shoppingcart' for #<Order id: nil, 
 Rendered rescues/_trace (37.0ms)
 Rendered rescues/_request_and_response (0.4ms)
 Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (5.8ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateItems (20131021182010)
+Migrating to CreateCatalogs (20131021182054)
+Migrating to CreateInventories (20131021182250)
+Migrating to CreateShoppingcarts (20131021182457)
+Migrating to CreateOrders (20131021182520)
+Migrating to AddCatalogToItems (20131023183235)
+  [4;35;1mSQL (116.0ms)[0m   [0mALTER TABLE `items` ADD `catalog_id` int(11)[0m
+  [4;36;1mSQL (7.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20131023183235')[0m
+Migrating to AddNameToCatalog (20131023183309)
+  [4;35;1mSQL (56.6ms)[0m   [0mALTER TABLE `catalogs` ADD `name` varchar(255)[0m
+  [4;36;1mSQL (7.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20131023183309')[0m
+Migrating to RemoveHasManyFromCatalog (20131023183342)
+  [4;35;1mSQL (0.0ms)[0m   [0mMysql::Error: Can't DROP 'has_many'; check that column/key exists: ALTER TABLE `catalogs` DROP `has_many`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mCatalog Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `catalogs`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mCatalog Create (0.4ms)[0m   [0mINSERT INTO `catalogs` (`updated_at`, `name`, `created_at`) VALUES('2013-10-23 18:38:27', 'CDs', '2013-10-23 18:38:27')[0m
+  [4;36;1mSQL (28.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mItem Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mItem Create (0.4ms)[0m   [0mINSERT INTO `items` (`updated_at`, `catalog_id`, `description`, `name`, `created_at`) VALUES('2013-10-23 18:39:14', 1, NULL, 'Christmas by Buble', '2013-10-23 18:39:14')[0m
+  [4;36;1mSQL (31.3ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mItem Load (0.6ms)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.catalog_id = 1) [0m
+
+
+Processing ItemsController#index (for 127.0.0.1 at 2013-10-23 14:41:56) [GET]
+  [4;35;1mItem Load (0.5ms)[0m   [0mSELECT * FROM `items` [0m
+Rendering template within layouts/items
+Rendering items/index
+Completed in 32ms (View: 28, DB: 65) | 200 OK [http://www.example.com/items/]
