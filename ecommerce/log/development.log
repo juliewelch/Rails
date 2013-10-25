@@ -808,3 +808,57 @@ Processing ItemsController#index (for 127.0.0.1 at 2013-10-23 14:41:56) [GET]
 Rendering template within layouts/items
 Rendering items/index
 Completed in 32ms (View: 28, DB: 65) | 200 OK [http://www.example.com/items/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 10.163.166.16 at 2013-10-25 14:32:56) [GET]
+  [4;35;1mItem Load (6.6ms)[0m   [0mSELECT * FROM `items` [0m
+Rendering items/index
+  [4;36;1mItem Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 84ms (View: 56, DB: 9) | 200 OK [http://cor.cs.uky.edu/Items]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 10.163.166.16 at 2013-10-25 14:36:03) [GET]
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM `items` [0m
+Rendering template within layouts/application
+Rendering items/index
+  [4;36;1mItem Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 61ms (View: 49, DB: 2) | 200 OK [http://cor.cs.uky.edu/Items]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 10.163.166.16 at 2013-10-25 14:43:33) [GET]
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM `items` [0m
+Rendering template within layouts/application
+Rendering items/index
+  [4;36;1mItem Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 63ms (View: 51, DB: 1) | 200 OK [http://cor.cs.uky.edu/Items]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 10.163.166.16 at 2013-10-25 14:43:37) [GET]
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM `items` [0m
+Rendering template within layouts/application
+Rendering items/index
+  [4;35;1mItem Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Completed in 22ms (View: 14, DB: 1) | 200 OK [http://cor.cs.uky.edu/Items]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 10.163.166.16 at 2013-10-25 14:44:58) [GET]
+  [4;35;1mItem Load (0.3ms)[0m   [0mSELECT * FROM `items` [0m
+Rendering template within layouts/application
+Rendering items/index
+  [4;36;1mItem Columns (1.0ms)[0m   [0;1mSHOW FIELDS FROM `items`[0m
+Completed in 80ms (View: 54, DB: 1) | 200 OK [http://cor.cs.uky.edu/Items]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ItemsController#index (for 10.163.166.16 at 2013-10-25 14:45:05) [GET]
+  [4;36;1mItem Load (0.2ms)[0m   [0;1mSELECT * FROM `items` [0m
+Rendering template within layouts/application
+Rendering items/index
+  [4;35;1mItem Columns (1.0ms)[0m   [0mSHOW FIELDS FROM `items`[0m
+Completed in 23ms (View: 14, DB: 1) | 200 OK [http://cor.cs.uky.edu/Items]
